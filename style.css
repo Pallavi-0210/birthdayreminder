@@ -1,0 +1,206 @@
+body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1a1a2e; /* Dark blue/purple background */
+      color: #e0e0e0; /* Light grey text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem; /* Consistent padding */
+      margin: 0; /* Reset default margin */
+      box-sizing: border-box;
+    }
+
+    /* Container for the main content card */
+    .container {
+      max-width: 450px;
+      width: 100%; /* Ensure it takes available width up to max-width */
+      margin: 2rem auto; /* Centering the container */
+      background: #24243e; /* Darker card background */
+      padding: 2rem; /* Consistent padding */
+      border-radius: 1rem; /* Modern rounded corners (16px) */
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.08), 0 0 20px rgba(57, 255, 20, 0.08); /* Subtle mixed neon glow */
+    }
+
+    /* Wrapper for the Add Birthday section */
+    .add-birthday-wrapper {
+      background: #1e1e38; /* Slightly lighter dark background for the wrapper */
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 2rem; /* Space below the wrapper */
+      border: 1px solid rgba(0, 255, 255, 0.3); /* Subtle cyan border */
+      box-shadow: 0 0 5px rgba(0, 255, 255, 0.2), 0 0 10px rgba(57, 255, 20, 0.1); /* Subtle mixed glow */
+    }
+
+    /* General heading styles */
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1.5rem; /* Spacing below headings */
+    }
+
+    /* Specific H1 styling (Main Title) */
+    h1 {
+      font-family: 'Orbitron', sans-serif; /* Futuristic font */
+      font-size: 2.25rem; /* Adjusted font size */
+      letter-spacing: 0.05em;
+      color: #39FF14; /* Neon Green */
+      text-shadow:
+        0 0 3px #39FF14,
+        0 0 8px #39FF14,
+        0 0 15px #32CD32; /* Green glow */
+    }
+
+    /* Specific H2 styling (Sub-headings) */
+    h2 {
+      font-size: 1.5rem; /* Adjusted font size */
+      color: #00ffff; /* Neon Cyan */
+      text-shadow:
+        0 0 3px #00ffff,
+        0 0 8px #00ffff,
+        0 0 15px #00e6e6; /* Cyan glow */
+    }
+
+    /* Form styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* Spacing between form elements (16px) */
+    }
+
+    /* Label styling */
+    label {
+      display: block; /* Ensure label takes full width */
+      margin-bottom: 0.5rem; /* Space below label */
+      font-weight: 600; /* Bolder labels */
+      color: #00ffff; /* Neon Cyan */
+      font-size: 0.9rem;
+      text-shadow: 0 0 3px #00ffff, 0 0 8px #00ffff; /* Subtle cyan glow */
+    }
+
+    /* Input field styling (text and date) */
+    input[type="text"],
+    input[type="date"] {
+      background-color: #1e1e38; /* Dark input background */
+      border: 2px solid #00ffff; /* Neon Cyan border */
+      color: #e0e0e0; /* Light text color */
+      padding: 0.75rem 1rem; /* Padding inside inputs */
+      font-size: 1rem; /* Font size for input text */
+      border-radius: 0.5rem; /* Rounded corners for inputs (8px) */
+      box-shadow: 0 0 3px #00ffff; /* Subtle cyan glow on border */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%; /* Make inputs take full width of their container */
+      box-sizing: border-box; /* Ensure padding and border are included in width */
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus {
+      outline: none; /* Remove default focus outline */
+      border-color: #39FF14; /* Neon Green border on focus */
+      box-shadow: 0 0 7px #39FF14, 0 0 3px #39FF14 inset; /* Green glow on focus */
+    }
+
+    /* Styling for the date picker indicator (browser-specific) */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1) sepia(100%) saturate(10000%) hue-rotate(180deg) brightness(1.5); /* Attempt to make it cyan-ish */
+    }
+
+    /* Button styling (specifically for submit button in the form) */
+    form button[type="submit"] {
+      background-color: #39FF14; /* Neon Green background */
+      color: #1a1a2e; /* Dark text for contrast on green button */
+      border: 2px solid #39FF14; /* Neon Green border */
+      padding: 0.75rem 1rem; /* Padding inside button */
+      font-size: 1rem; /* Font size for button text */
+      font-weight: 600; /* Bolder button text */
+      border-radius: 0.5rem; /* Rounded corners for button (8px) */
+      cursor: pointer; /* Pointer cursor on hover */
+      text-transform: uppercase; /* Uppercase text for style */
+      letter-spacing: 0.05em; /* Slight letter spacing */
+      box-shadow: 0 0 3px #39FF14, 0 0 8px #32CD32; /* Green glow */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%; /* Make button take full width */
+      box-sizing: border-box;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #4CFF4C; /* Lighter green on hover */
+      box-shadow: 0 0 5px #39FF14, 0 0 12px #32CD32; /* Enhanced green glow on hover */
+    }
+
+    /* Unordered list styling (for birthday list) */
+    ul#birthdayList {
+      list-style: none; /* Remove default bullet points */
+      padding-left: 0; /* Remove default padding */
+      margin-top: 2rem; /* Space above the list */
+    }
+
+    /* List item styling (for individual birthdays) */
+    ul#birthdayList li {
+      background-color: rgba(0, 255, 255, 0.05); /* Faint cyan background */
+      border-left: 4px solid #00ffff; /* Neon Cyan left accent border */
+      padding: 0.75rem 1rem; /* Padding inside list items */
+      margin-bottom: 0.5rem; /* Space between list items */
+      border-radius: 0.25rem; /* Slightly rounded corners for list items (4px) */
+      color: #c0c0ff; /* Light lavender text color for details */
+      font-size: 0.95rem;
+    }
+
+    ul#birthdayList li strong {
+      color: #00ffff; /* Neon Cyan for names */
+      font-weight: 600; /* Bolder names */
+    }
+
+    /* Message display styling */
+    .message {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      opacity: 0; /* Start hidden */
+      transform: translateY(20px); /* Start slightly below */
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .message.show {
+      opacity: 1; /* Show when 'show' class is added */
+      transform: translateY(0); /* Animate to original position */
+    }
+
+    .message.success {
+      background-color: rgba(57, 255, 20, 0.15); /* Light green tint */
+      color: #39FF14; /* Neon Green text */
+      border: 1px solid #39FF14;
+      box-shadow: 0 0 8px rgba(57, 255, 20, 0.6); /* Stronger green glow */
+    }
+
+    .message.error {
+      background-color: rgba(255, 0, 0, 0.15); /* Light red tint */
+      color: #FF6347; /* Tomato Red text */
+      border: 1px solid #FF6347;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.4); /* Red glow */
+    }
+
+  #notification {
+  position: fixed;
+  top: 20px; /* Initial distance from the top */
+  left: 50%; /* Start from the horizontal center */
+  transform: translateX(-50%) translateY(-20px) scale(0.95); /* Adjust for centering and initial animation */
+  background: linear-gradient(45deg, #00ffff, #39FF14); /* Subtle cyan to green gradient */
+  color: #1a1a2e; /* Dark text for contrast */
+  padding: 1.2rem 1.8rem; /* Slightly more padding */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 25px rgba(57, 255, 20, 0.4); /* Enhanced neon glow */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+  font-size: 1.1rem; /* Slightly larger font */
+  font-weight: 700; /* Bolder text */
+  letter-spacing: 0.03em; /* Subtle letter spacing */
+  text-shadow: 0 0 2px rgba(26, 26, 46, 0.3); /* Subtle dark text shadow for pop */
+}
+
+#notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1); /* Animate to centered position and full scale */
+}

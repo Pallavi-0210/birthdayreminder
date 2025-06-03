@@ -1,0 +1,10 @@
+# Ignore Firebase credentials and configs
+birthday-backend/serviceAccountKey.json
+firebase-config.js
+
+# Ignore node_modules
+birthday-backend/node_modules/
+
+# Optional: Ignore system-specific files
+.DS_Store
+Thumbs.db

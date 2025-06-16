@@ -1,13 +1,14 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const admin = require('firebase-admin');
-const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Firebase Admin Setup
-const serviceAccount = require('./serviceAccountKey.json');
+// Firebase Admin Setup using env
+const serviceAccount = JSON.parse(
+  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT, 'base64').toString('utf8')
+);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -15,16 +16,16 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// Nodemailer setup (use Gmail App Password!)
+// Nodemailer setup using environment variables
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'pallavitejaswi596@gmail.com',
-    pass: 'ujgb kqys tohu vitm' // Create from https://myaccount.google.com/apppasswords
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS // Use Gmail App Password
   }
 });
 
-// Listen to new documents in "birthdays"
+// Firestore Listener
 db.collection('birthdays')
   .orderBy('date', 'desc')
   .onSnapshot(snapshot => {
@@ -34,8 +35,8 @@ db.collection('birthdays')
         const emailText = `You added ${data.name}'s birthday on ${data.date}`;
 
         const mailOptions = {
-          from: '"Birthday Reminder" <pallavitejaswi596@gmail.com>',
-          to: 'raghupathi1919@gmail.com', // Replace with your email or dynamic user
+          from: `"Birthday Reminder" <${process.env.EMAIL_USER}>`,
+          to: 'raghupathi1919@gmail.com', // Can be made dynamic
           subject: `🎉 New Birthday: ${data.name}`,
           text: emailText
         };
